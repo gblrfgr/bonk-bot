@@ -1,12 +1,12 @@
 import discord.ext.commands
 import discord.ext.tasks
 import discord
-import datetime
 import json
 import scheduler.asyncio
 import random
 import logging
 import asyncio
+import os
 
 logging.basicConfig(format="%(asctime)s\t%(level)s:\t%(message)s", level=logging.INFO)
 
@@ -23,7 +23,9 @@ with open("config.json", "r") as config_file:
 @discord.ext.tasks.loop(**{config["interval"]["unit"]: config["interval"]["quantity"]})
 async def do_bonks():
     for channel in bonk_channels.values():
-        await channel.send(f"{random.choice(channel.guild.members).mention} has been bonked!")
+        await channel.send(
+            f"{random.choice(channel.guild.members).mention} has been bonked!"
+        )
 
 
 @bonk_bot.command()
@@ -36,4 +38,4 @@ async def on_ready():
     do_bonks.start()
 
 
-bonk_bot.run(config["bot_token"])
+bonk_bot.run(os.environ["BOT_TOKEN"])

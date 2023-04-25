@@ -1,7 +1,6 @@
 {
     "interval": {
-        "quantity": 15,
-        "unit": "minutes"
-    },
-    "bot_token": "MTEwMDQ2NzIzMTg1MjM0NzQ2Mw.GGB7f9.oet0l3aMQunmi3tPT4rADPdg5bLtZzqTRo0fKw"
+        "quantity": 24,
+        "unit": "hours"
+    }
 }
